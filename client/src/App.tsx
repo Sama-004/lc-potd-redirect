@@ -6,6 +6,7 @@ import ReactGA from "react-ga";
 
 const trackingId = "G-3VMPYPNRWG";
 ReactGA.initialize(trackingId);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export const App = () => {
   const [problemLink, setProblemLink] = useState(null);
