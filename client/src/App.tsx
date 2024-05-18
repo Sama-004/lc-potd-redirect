@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
+import { Analytics } from "@vercel/analytics/react";
 
 export const App = () => {
   const [problemLink, setProblemLink] = useState(null);
@@ -23,6 +24,7 @@ export const App = () => {
 
   return (
     <div className="h-screen flex justify-center items-center text-white bg-black">
+      <Analytics />
       <div>
         {problemLink === null ? (
           <p>Please wait to be redirected...</p>
