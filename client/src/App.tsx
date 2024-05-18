@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { Analytics } from "@vercel/analytics/react";
+import ReactGA from "react-ga";
+
+const trackingId = "G-3VMPYPNRWG";
+ReactGA.initialize(trackingId);
 
 export const App = () => {
   const [problemLink, setProblemLink] = useState(null);
@@ -21,6 +25,10 @@ export const App = () => {
   };
 
   useEffect(fetchProblemLink, []);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
 
   return (
     <div className="h-screen flex justify-center items-center text-white bg-black">
